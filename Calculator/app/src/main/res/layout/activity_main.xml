@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/price_edittext"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5sp"
+        android:layout_height="match_parent"
+        android:background="#e0e0e0"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/product_name_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_margin="5sp"
+            android:ems="10"
+            android:hint="Product Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/amount_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:ems="10"
+            android:hint="Amount Without $ sign"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/calc_button"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_margin="5sp"
+            android:background="#fff3e0"
+            android:textAllCaps="false"
+            android:text="Cal"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/output_textview"
+            android:layout_width="match_parent"
+            android:layout_height="35sp"
+            android:layout_margin="5sp"
+            android:text="Calculation TextView"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/concat_button"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:background="#fff3e0"
+            android:layout_margin="5sp"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:text="Cat"  />
+
+        <TextView
+            android:id="@+id/concat_textview"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_margin="5sp"
+            android:text="Concat Text View"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
