@@ -213,6 +213,17 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/l15"
                 tools:ignore="MissingConstraints" />
+            
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/youtubePlayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            
+            <Button
+                android:id="@+id/btnPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play Video"/>
 
 
         </LinearLayout>

@@ -2,7 +2,9 @@ package com.akhileshgoit.photographytips
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -14,7 +16,10 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.android.youtube.player.YouTubeInitializationResult
+import com.google.android.youtube.player.YouTubePlayer
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_tutorial.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +27,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    lateinit var youtubePlayerInit: YouTubePlayer.OnInitializedListener
+    companion object{
+        val VIDEO_ID: String = "JV7FepKO0E4";
+        val YOUTUBE_API_KEY: String = "AIzaSyAdEdNt3-fa--jGGGqSiyXvm24D50sYqUU";
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,6 +49,32 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         BuildConfig.WEB_SERVER
+
+        initUI()
+
+    }
+
+    private fun initUI(){
+        youtubePlayerInit = object : YouTubePlayer.OnInitializedListener{
+            override fun onInitializationSuccess(
+                p0: YouTubePlayer.Provider?,
+                youtubePlayer : YouTubePlayer?,
+                p2: Boolean
+            ) {
+                youtubePlayer?.loadVideo(VIDEO_ID)
+            }
+
+            override fun onInitializationFailure(
+                p0: YouTubePlayer.Provider?,
+                p1: YouTubeInitializationResult?
+            ) {
+                Toast.makeText(applicationContext, "Something went wrong !!", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+        btnPlay.setOnClickListener(View.OnClickListener { view ->
+            youtubePlayer.initialize(YOUTUBE_API_KEY, youtubePlayerInit)
+        })
 
     }
 
